@@ -108,6 +108,16 @@ namespace Ryujinx
         public HidControllerType ControllerType { get; private set; }
 
         /// <summary>
+        /// Enable or disable custom themes in the GUI
+        /// </summary>
+        public bool EnableCustomTheme { get; private set; }
+
+        /// <summary>
+        /// Path to custom GUI theme
+        /// </summary>
+        public string CustomThemePath { get; private set; }
+
+        /// <summary>
         /// Enable or disable keyboard support (Independent from controllers binding)
         /// </summary>
         public bool EnableKeyboard { get; private set; }
