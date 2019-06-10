@@ -122,12 +122,12 @@ namespace Ryujinx
         /// <summary>
         /// Enable or disable keyboard support (Independent from controllers binding)
         /// </summary>
-        public bool EnableKeyboard { get; private set; }
+        public bool EnableKeyboard { get; set; }
 
         /// <summary>
         /// Keyboard control bindings
         /// </summary>
-        public NpadKeyboard KeyboardControls { get; private set; }
+        public NpadKeyboard KeyboardControls { get; set; }
 
         /// <summary>
         /// Controller control bindings
@@ -195,6 +195,7 @@ namespace Ryujinx
             }
 
             GeneralSettings.ConfigureSettings(Instance);
+            ControlSettings.ConfigureControls(Instance);
 
             Logger.AddTarget(new AsyncLogTargetWrapper(
                 new ConsoleLogTarget(),
