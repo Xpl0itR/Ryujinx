@@ -107,7 +107,7 @@ namespace Ryujinx
         /// <summary>
         ///  The primary controller's type
         /// </summary>
-        public HidControllerType ControllerType { get; private set; }
+        public HidControllerType ControllerType { get; set; }
 
         /// <summary>
         /// Enable or disable custom themes in the GUI
@@ -194,8 +194,7 @@ namespace Ryujinx
                 throw new InvalidOperationException("Configuration has not been loaded yet.");
             }
 
-            GeneralSettings.ConfigureSettings(Instance);
-            ControlSettings.ConfigureControls(Instance);
+            SwitchSettings.ConfigureSettings(Instance);
 
             Logger.AddTarget(new AsyncLogTargetWrapper(
                 new ConsoleLogTarget(),
