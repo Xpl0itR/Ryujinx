@@ -18,6 +18,7 @@
     "enable_aggressive_cpu_opts": true,
     "ignore_missing_services": false,
     "controller_type": "Handheld",
+    "game_dirs": [],
     "enable_custom_theme": false,
     "custom_theme_path": "",
     "enable_keyboard": true,

@@ -20,8 +20,6 @@ namespace Ryujinx
 
             Profile.Initalize();
 
-            ApplicationLibrary.Init();
-
             Gtk.Application.Init();
 
             var gtkapp = new Gtk.Application("Ryujinx.Ryujinx", GLib.ApplicationFlags.None);

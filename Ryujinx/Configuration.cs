@@ -1,3 +1,4 @@
+using JsonPrettyPrinterPlus;
 using LibHac.Fs;
 using OpenTK.Input;
 using Ryujinx.Common;
@@ -8,12 +9,12 @@ using Ryujinx.HLE.HOS.Services;
 using Ryujinx.HLE.Input;
 using Ryujinx.UI.Input;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using Utf8Json;
 using Utf8Json.Resolvers;
-using JsonPrettyPrinterPlus;
 
 namespace Ryujinx
 {
@@ -108,6 +109,11 @@ namespace Ryujinx
         ///  The primary controller's type
         /// </summary>
         public HidControllerType ControllerType { get; set; }
+
+        /// <summary>
+        /// A list of directories containing games to be used to load games into the games list
+        /// </summary>
+        public List<string> GameDirs { get; set; }
 
         /// <summary>
         /// Enable or disable custom themes in the GUI
