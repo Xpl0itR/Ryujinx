@@ -1,0 +1,220 @@
+* {
+    font-size: 14px;
+}
+
+.background {
+    background-color: #2C2F33;
+    color: #F4F6F7;
+}
+
+menu menuitem {
+    background-color: #2C2F33;
+    color: #F4F6F7;
+}
+
+    menu menuitem:hover {
+        background-color: #FF5F57;
+        color: #F4F6F7;
+    }
+
+    menu menuitem:disabled {
+        background-color: #23272A;
+        color: #929394;
+    }
+
+separator {
+    background: #929394;
+}
+
+.GameDir {
+    border-color: #929394;
+    border-width: 1px;
+    border-style: solid;
+}
+
+notebook {
+    border: none;
+}
+
+    notebook > header {
+        background-color: #2C2F33;
+        border: none;
+    }
+        
+    notebook > header label {
+        color: #F4F6F7;
+    }
+
+notebook > stack:not(:only-child) {
+    background-color: transparent;
+    border-width: 0px;
+}
+
+treeview {
+    background-color: #2C2F33;
+    color: #F4F6F7;
+}
+
+    treeview:selected {
+        background-color: #FF5F57;
+        color: #F4F6F7;
+    }
+
+    treeview header button {
+        background-color: #2C2F33;
+        border-color: #929394;
+        color: #F4F6F7;
+    }
+
+textview text {
+    background-color: #23272A;
+    color: #F4F6F7;
+}
+
+entry {
+    background-color: #23272A;
+    border-color: #23272A;
+    color: #F4F6F7;
+}
+
+    entry:disabled {
+        color: #929394;
+    }
+
+scrolledwindow {
+    border-color: #2C2F33;
+}
+
+button {
+    background: #23272A;
+    border-color: #23272A;
+    color: #F4F6F7;
+}
+
+filechooser #pathbarbox {
+    background-color: #272b2e;
+    border-bottom: 1px solid #595c5f;
+}
+
+scrollbar {
+    -GtkScrollbar-has-backward-stepper: false;
+    -GtkScrollbar-has-forward-stepper: false;
+    background-color: #272b2e;
+    border-width: 0px 0px;
+    border-color: #272b2e;
+    margin: 0px;
+}
+
+    scrollbar button {
+        min-width: 14px;
+        min-height: 14px;
+        margin: 0px;
+        padding: 0px 0px;
+        border: none;
+        border-radius: 0px;
+        background-image: none;
+        background-color: transparent;
+        color: transparent;
+        box-shadow: none;
+    }
+
+        scrollbar button:hover {
+            border: none;
+            background-image: none;
+            background-color: #2C2F33;
+            color: transparent;
+        }
+
+        scrollbar button:active, scrollbar button:active:hover {
+            border: none;
+            background-image: none;
+            background-color: #2C2F33;
+            color: transparent;
+        }
+
+        scrollbar button:disabled {
+            border: none;
+            background-color: #2C2F33;
+            background-image: none;
+            color: transparent;
+        }
+
+        scrollbar button:backdrop {
+            color: #eff0f1;
+        }
+
+            scrollbar button:backdrop:disabled {
+                color: rgba(216, 218, 221, 0.35);
+            }
+
+    scrollbar.dragging, scrollbar.hovering {
+        opacity: 0.9910;
+    }
+
+    scrollbar.overlay-indicator:not(.dragging):not(.hovering) {
+        opacity: 0.999;
+    }
+
+    scrollbar.overlay-indicator:not(.dragging):not(.hovering) {
+        -GtkScrollbar-has-backward-stepper: false;
+        -GtkScrollbar-has-forward-stepper: false;
+    }
+
+        scrollbar.overlay-indicator:not(.dragging):not(.hovering) slider {
+            min-width: 6px;
+            border-radius: 8px;
+            background-color: rgba(169, 171, 173, 0.8);
+        }
+
+            scrollbar.overlay-indicator:not(.dragging):not(.hovering) slider:backdrop {
+                background-color: #a9abad;
+            }
+
+        scrollbar.overlay-indicator:not(.dragging):not(.hovering).horizontal slider {
+            min-height: 6px;
+        }
+
+    scrollbar.overlay-indicator {
+        background: none;
+    }
+
+    scrollbar trough {
+        transition-duration: 0.1s;
+        min-width: 6px;
+        min-height: 14px;
+        border: 0px solid #272b2e;
+        border-radius: 8px;
+        background-color: transparent;
+    }
+
+    scrollbar:hover trough {
+        background-color: #636669;
+        box-shadow: inset 0px 0px 0px 5px #272b2e;
+    }
+
+    scrollbar slider {
+        transition-duration: 0.1s;
+        min-width: 6px;
+        min-height: 30px;
+        border: 5px solid transparent;
+        border-radius: 8px;
+        background-clip: padding-box;
+        background-color: #a9abad;
+    }
+
+        scrollbar slider:hover {
+            background-color: #FF5F57;
+        }
+
+        scrollbar slider:backdrop {
+            background-color: #a9abad;
+        }
+
+            scrollbar slider:backdrop:disabled {
+                background-color: rgba(153, 155, 158, 0.35);
+            }
+
+    scrollbar.horizontal slider {
+        min-width: 30px;
+        min-height: 6px;
+    }
