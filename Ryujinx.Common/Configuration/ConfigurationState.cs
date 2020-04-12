@@ -545,6 +545,8 @@ namespace Ryujinx.Configuration
                     }
                 };
 
+                configurationFileFormat.SystemTimeOffset = 0;
+
                 configurationFileUpdated = true;
             }
 

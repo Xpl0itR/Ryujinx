@@ -93,7 +93,7 @@ namespace Ryujinx.Configuration
         public string SystemTimeZone { get; set; }
 
         /// <summary>
-        /// Change System Time Offset In Seonds
+        /// Change System Time Offset in seonds
         /// </summary>
         public long SystemTimeOffset { get; set; }
 
