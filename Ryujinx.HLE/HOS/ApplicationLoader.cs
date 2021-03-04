@@ -1,4 +1,5 @@
 using ARMeilleure.Translation.PTC;
+using ImageLOL.NET;
 using LibHac;
 using LibHac.Account;
 using LibHac.Common;
@@ -13,12 +14,18 @@ using Ryujinx.HLE.FileSystem;
 using Ryujinx.HLE.FileSystem.Content;
 using Ryujinx.HLE.Loaders.Executables;
 using Ryujinx.HLE.Loaders.Npdm;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Advanced;
+using SixLabors.ImageSharp.Formats.Png;
+using SixLabors.ImageSharp.Memory;
+using SixLabors.ImageSharp.PixelFormats;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 
 using static LibHac.Fs.ApplicationSaveDataManagement;
 using static Ryujinx.HLE.HOS.ModLoader;
@@ -287,6 +294,23 @@ namespace Ryujinx.HLE.HOS
 
             // This is not a normal NSP, it's actually a ExeFS as a NSP
             LoadExeFs(nsp);
+        }
+
+        public void LoadImageLolNsp(string imageLolFile)
+        {
+            using FileStream   file    = new FileStream(imageLolFile, FileMode.Open, FileAccess.Read);
+            using Image<Rgb24> image   = Image.Load<Rgb24>(file, new PngDecoder());
+            ImageLolDecoder    decoder = new ImageLolDecoder(ToRgbBytes(image));
+
+            byte[] decoded = new byte[decoder.FileLength];
+            decoder.Decode(decoded);
+
+            IStorage storage = new MemoryStorage(decoded);
+            PartitionFileSystem nsp = new PartitionFileSystem(storage);
+
+            (Nca mainNca, Nca patchNca, Nca controlNca) = GetGameData(_fileSystem, nsp, _device.UserChannelPersistence.Index);
+
+            LoadNca(mainNca, patchNca, controlNca);
         }
 
         public void LoadNca(string ncaFile)
@@ -679,6 +703,31 @@ namespace Ryujinx.HLE.HOS
             }
 
             return resultCode;
+        }
+
+        private static Span<byte> ToRgbBytes<TPixel>(Image<TPixel> image)
+            where TPixel : unmanaged, IPixel<TPixel>
+        {
+            IMemoryGroup<TPixel> memoryGroup = image.GetPixelMemoryGroup();
+            Span<TPixel> pixels;
+
+            if (memoryGroup.Count == 1)
+            {
+                pixels = memoryGroup[0].Span;
+            }
+            else
+            {
+                pixels = new TPixel[image.Width * image.Height];
+
+                int offset = 0;
+                foreach (Memory<TPixel> memory in memoryGroup)
+                {
+                    memory.Span.CopyTo(pixels.Slice(offset));
+                    offset += memory.Span.Length;
+                }
+            }
+
+            return MemoryMarshal.AsBytes(pixels);
         }
     }
 }

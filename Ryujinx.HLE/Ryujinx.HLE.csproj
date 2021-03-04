@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ImageLOL.NET\ImageLOL.NET\ImageLOL.NET.csproj" />
     <ProjectReference Include="..\Ryujinx.Audio\Ryujinx.Audio.csproj" />
     <ProjectReference Include="..\Ryujinx.Common\Ryujinx.Common.csproj" />
     <ProjectReference Include="..\Ryujinx.Cpu\Ryujinx.Cpu.csproj" />
@@ -22,6 +23,7 @@
     <PackageReference Include="Concentus" Version="1.1.7" />
     <PackageReference Include="LibHac" Version="0.12.0" />
     <PackageReference Include="MsgPack.Cli" Version="1.0.1" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="1.0.3" />
   </ItemGroup>
 
   <!-- Due to Concentus. -->

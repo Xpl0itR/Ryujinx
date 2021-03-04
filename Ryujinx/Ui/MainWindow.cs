@@ -551,6 +551,10 @@ namespace Ryujinx.Ui
                             Logger.Info?.Print(LogClass.Application, "Loading as NSP.");
                             _emulationContext.LoadNsp(path);
                             break;
+                        case ".png":
+                            Logger.Info?.Print(LogClass.Application, "Loading an ImageLOL encoded NSP.");
+                            _emulationContext.LoadImageLolNsp(path);
+                            break;
                         default:
                             Logger.Info?.Print(LogClass.Application, "Loading as homebrew.");
                             try
@@ -941,6 +945,7 @@ namespace Ryujinx.Ui
                 fileChooser.Filter.AddPattern("*.nca");
                 fileChooser.Filter.AddPattern("*.nro");
                 fileChooser.Filter.AddPattern("*.nso");
+                fileChooser.Filter.AddPattern("*.png");
 
                 if (fileChooser.Run() == (int)ResponseType.Accept)
                 {

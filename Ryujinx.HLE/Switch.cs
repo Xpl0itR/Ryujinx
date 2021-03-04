@@ -166,6 +166,11 @@ namespace Ryujinx.HLE
             Application.LoadNsp(nspFile);
         }
 
+        public void LoadImageLolNsp(string imageLolFile)
+        {
+            Application.LoadImageLolNsp(imageLolFile);
+        }
+
         public void LoadProgram(string fileName)
         {
             Application.LoadProgram(fileName);
